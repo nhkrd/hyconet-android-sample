@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">HyconetSample</string>
+    <item name="viewpager" type="id"/>
+</resources>

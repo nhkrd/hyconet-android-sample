@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<!--
+MIT License
+
+Copyright (c) 2020 - NHK
+
+All rights reserved.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+<title>Hyconet Android Sample</title>
+<link rel="stylesheet" href="https://origami-build.ft.com/v2/bundles/css?modules=o-grid@^4.0.0" />
+<link rel="stylesheet" href="./androidSample.css" />
+</head>
+<body>
+<div class="o-grid-container">
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="12" class="maintitle">Hybridcast Connect Protocol Checker</div>
+	</div>
+	
+	<!-- 7.2.1 機器発見 -->
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="12" class="subtitle">機器発見(DeviceDiscovery:DIAL)API</div>
+	</div>
+	<div class="sheet">
+
+	<!-- 7.2.1.1 （機器発見）プロトコル(DIAL) -->
+	<!-- 7.2.1.1.1 Device Description -->
+	<div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">A. 受信機（デバイス）探索</div>
+		<!-- <div data-o-grid-colspan="10">searchDevice()</div> -->
+		<div data-o-grid-colspan="3"><button type="button" onclick="call_js_search();">Search</button></div><div data-o-grid-colspan="9"></div>
+		<div data-o-grid-colspan="2">Devices:</div><div data-o-grid-colspan="10"><span id="devinfo"></span></div>
+	</div>
+	<form name="devform"><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">B. 受信機（デバイス）選択</div>
+		<!-- <div data-o-grid-colspan="10">setDevice()</div> -->
+		<div data-o-grid-colspan="8"><select id="devlist" name="devlist" size="2"></select></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_tvsel();">Select</button></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_tvseldirect();">Direct</button></div>
+		<div data-o-grid-colspan="2">Device:</div><div data-o-grid-colspan="10" id="tvsel"></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="openstatus"></div>
+	</div></form>
+
+
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">C. ハイコネプロトコル情報取得用URLの取得</div>
+		<!-- <div data-o-grid-colspan="10">getDialAppResourceURL()</div> -->
+		<div data-o-grid-colspan="10"></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getDialAppResourceURL();">GET</button></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="dialappresourceurl" class="info"></div>
+	</div></form>
+
+	<!-- 7.2.1.1.2 AdditionalData-->
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">D. ハイコネプロトコル情報の取得</div>
+		<!-- <div data-o-grid-colspan="10">getDialAppInfo()</div> -->
+		<div data-o-grid-colspan="10"></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getDialAppInfo();">GET</button></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="dialappinfo" class="info"></div>
+	</div></form>
+	</div>
+
+	<!-- 7.2.3.2.3 RESTful API -->
+	<div class="o-grid-row">
+		<div data-o-grid-colspan="12" class="subtitle">Hybridcast Connect Protocol RESTAPI</div>
+	</div>
+	<div class="sheet">
+
+	<!-- 7.2.3.2.3.2/7.1.7.1(JSInterface) 受信機設定情報の取得 -->
+	<!-- 7.2.3.2.3.2.1/7.1.7.1.1(JSInterface) メディア(地上デジタル、BS、CS)利用可否情報の取得 -->
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">E. メディア利用可否情報の取得</div>
+		<div data-o-grid-colspan="10">getAvailableMediaFromHostDevice()</div>
+		<div data-o-grid-colspan="2"><button type=button onclick="call_js_getAvailableMediaFromHostDevice();">GET</button></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="mediainfo" class="info"></div>
+	</div></form>
+
+	<!-- 7.2.3.2.3.2.2/7.1.7.1.2(JSInterface) 編成チャンネル情報の取得 -->
+	<form name="chform"><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">F. 編成チャンネル情報の取得</div>
+		<div data-o-grid-colspan="12">getChannelInfoFromHostDevice()</div>
+		<div data-o-grid-colspan="4"></div><div data-o-grid-colspan="4">選択メディア </div>
+		<div data-o-grid-colspan="2"><select id="medialist" name="medialist" size="2">
+			<option value="ALL" >ALL</option>
+			<option value="TD" selected >TD</option>
+			<option value="BS" >BS</option>
+			<option value="CS" >CS</option>
+		</select></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getChannelInfoFromHostDevice();">GET</button></div>
+		<div data-o-grid-colspan="12">選局ボタン</div>
+		<div data-o-grid-colspan="1"></div><div id="chpad" data-o-grid-colspan="10"></div><div data-o-grid-colspan="1"></div>
+	</div></form>
+
+	<!-- 7.2.3.2.3.3/7.1.7.2(JSInterface) ハイブリッドキャストアプリケーションの起動要求 -->
+		<!-- 7.2.3.2.3.3.1/7.1.7.2.1(JSInterface) 起動要求 -->
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">G1. ハイブリッドキャストアプリの起動要求(選局のみ)</div>
+		<div data-o-grid-colspan="10">startAITControlledAppToHostDevice()</div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'tune', 32736, 32736, 1024, 1 );">POST</button></div>
+		<div data-o-grid-colspan="2">Mode:</div><div data-o-grid-colspan="10" id="appmode_tune" class="info"></div>
+		<div data-o-grid-colspan="2">App:</div><div data-o-grid-colspan="10" id="appapp_tune" class="info"></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="appinfo_tune" class="info"></div>
+	</div></form>
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">G2. ハイブリッドキャストアプリの起動要求<br>(選局とハイブリッドキャストアプリの起動)</div>
+		<div data-o-grid-colspan="12">startAITControlledAppToHostDevice()</div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 32736, 32736, 1024, 1 );">放送局A</button></div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 32737, 32737, 1032, 2 );">放送局B</button></div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 4, 16625, 101, 1 );">放送局C</button></div>
+		<div data-o-grid-colspan="2">Mode:</div><div data-o-grid-colspan="10" id="appmode_app" class="info"></div>
+		<div data-o-grid-colspan="2">AppInfo:</div><div data-o-grid-colspan="10" id="appapp_app" class="info"></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="appinfo_app" class="info"></div>
+	</div></form>
+
+	<!-- 7.2.3.2.3.4/7.1.7.3(JSInterface) 受信機動作状態の取得 -->
+	<!-- 7.2.3.2.3.4.1/7.1.7.3.1(JSInterface) 起動要求成否の取得 -->
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">H. 起動要求成否の取得</div>
+		<div data-o-grid-colspan="10">getTaskStatusFromHostDevice()</div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getTaskStatusFromHostDevice();">GET</button></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="taskstatus" class="info"></div>
+	</div></form>
+	<!-- 7.2.3.2.3.4.2/7.1.7.3.2(JSInterface) 受信機状態の取得 -->
+	<form><div class="o-grid-row itemarea">
+		<div data-o-grid-colspan="12" class="subsubtitle">I. 受信機状態の取得</div>
+		<div data-o-grid-colspan="10">getReceiverStatusFromHostDevice()</div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getReceiverStatusFromHostDevice();">GET</button></div>
+		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="receiverinfo" class="info"></div>
+	</div></form>
+	</div>
+</div>
+<script src="androidSample.js"></script>
+</body>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#f0f0ff"
+    android:baselineAligned="false"
+    android:tag="menu"
+    tools:context=".FragmentLog"
+    >
+
+    <EditText
+        android:id="@+id/logtext"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:ems="10"
+        android:gravity="left|top"
+        android:inputType="none"
+        android:labelFor="@+id/logtext"
+        android:textSize="14sp" />
+
+</LinearLayout>

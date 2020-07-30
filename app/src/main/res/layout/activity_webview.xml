@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/web_view_name"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    android:tag="webview"
+    tools:context=".FragmentWebView">
+
+    <WebView
+        android:id="@+id/web_view_name_wv"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:baselineAligned="false"
+        android:minWidth="300dp"
+        android:minHeight="300dp">
+
+    </WebView>
+</LinearLayout>
+

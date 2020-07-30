@@ -1,0 +1,12 @@
+version: '3'
+services:
+  hyconetAndroidSample:
+    image: hyconetandroid/ubuntu
+    build:
+      context: ./
+    privileged: true
+    container_name: java-hyconetandroid-ubuntu
+    volumes:
+      - .:/android
+    working_dir: /android
+    command: bash ./gradlew clean assembleDebug 
