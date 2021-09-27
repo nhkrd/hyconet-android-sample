@@ -96,7 +96,10 @@ The list in next section shows the functions and the additional JavascriptAPIs o
     - ハイブリッドキャストアプリの起動要求(選局)を実行。サンプルでは、１パターンのチャンネル選局用ボタンを用意している。
 - G2: startAIT(app)
     - Tap a button to request startAITAPI(app) to selected device(a TV set). In this sample, the channel parameters to request are specified.
-    - ハイブリッドキャストアプリの起動要求(選局)を実行する。サンプルでは、３つのパターンのチャンネル選局用ボタンを用意している。 
+    - ハイブリッドキャストアプリの起動要求(選局とアプリ起動)を実行する。サンプルでは、３つのパターンのチャンネル選局用ボタンを用意している。 
+- G3: startAIT(bia)
+    - Tap a button to request startAITAPI(bia) to selected device(a TV set). In this sample, the channel parameters to request are specified.
+    - ハイブリッドキャストアプリの起動要求(放送非依存マネージドアプリの起動)を実行する。
 - H: getTaskStatus
     - Tap a button to request taskStatusAPI. It is able to get status of startAIT request.
     - ハイブリッドキャストアプリ起動リクエスト(startAIT)の実行タスクのステータスを取得することができる。
@@ -130,7 +133,7 @@ JavascriptObject: window.appLauncher
 | --- | --- | --- | --- | --- |
 | E | メディア利用可否情報の取得 <br/>get MediaAvailability in a TV set | IPTVFJ STD-0013<br/>7.1.7.1.1 | appLauncher<br/>.getAvailableMediaFromHostDevice | O |
 | F | 編成チャンネル情報の取得 <br/> get channels information stored in a TV set | IPTVFJ STD-0013<br/>7.1.7.1.2 | appLauncher<br/>.getChannelInfoFromHostDevice | O |
-| G | ハイブリッドキャストアプリの起動要求<br>(選局/ハイブリッドキャストアプリの起動) <br/>startAIT API. tune the specified channel <br/>and/or launch the specified hybridcast app <br/>on a browser in a TV set | IPTVFJ STD-0013<br/>7.1.7.2.1 | appLauncher<br/>.startAITControlledAppToHostDevice | O |
+| G | ハイブリッドキャストアプリの起動要求<br>(選局/ハイブリッドキャストアプリの起動/放送非依存マネージドアプリの起動) <br/>startAIT API. tune the specified channel <br/>and/or launch the specified hybridcast app <br/>on a browser in a TV set | IPTVFJ STD-0013<br/>7.1.7.2.1 | appLauncher<br/>.startAITControlledAppToHostDevice | O |
 | H | 起動要求成否の取得 <br/> get status tune/hybridcast API(startAIT) request | IPTVFJ STD-0013<br/>7.1.7.3.1 | appLauncher<br/>.getTaskStatusFromHostDevice | O |
 | I | 受信機状態の取得 <br/>get receiver status | IPTVFJ STD-0013<br/>7.1.7.3.2 | appLauncher<br/>.getReceiverStatusFromHostDevice | O |
 

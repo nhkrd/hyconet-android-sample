@@ -128,11 +128,14 @@ function call_js_getChannelInfoFromHostDevice() {
 				var chname = channels[j]["broadcast_channel_name"];
 				var nwid = channels[j]["resource"]["original_network_id"];
 				var tsid = channels[j]["resource"]["transport_stream_id"];
+				if( tsid == null ) {
+				    tsid = channels[j]["resource"]["tlv_stream_id"];
+				}
 				var svid = channels[j]["resource"]["service_id"];
 				var label = type + ":" + chnum + " " + chname;
 				var btn = document.createElement('button');
 				btn.type = "button";
-				btn.value = nwid + ',' + tsid + ',' + svid;
+				btn.value = type + ',' + nwid + ',' + tsid + ',' + svid;
 				btn.innerText = label;
 				btn.onclick = onclick_call_js_startAITControlledAppToHostDevice;
 				btn.setAttribute( "data-o-grid-colspan" , "12" );
@@ -148,7 +151,7 @@ function call_js_getChannelInfoFromHostDevice() {
 function onclick_call_js_startAITControlledAppToHostDevice() {
 	var ids = this.value.split(",");
 
-	call_js_startAITControlledAppToHostDevice( "tune", parseInt(ids[0]), parseInt(ids[1]), parseInt(ids[2]), 0 );
+	call_js_startAITControlledAppToHostDevice( "tune", ids[0], parseInt(ids[1]), parseInt(ids[2]), parseInt(ids[3]), 0 );
 }
 
 
@@ -164,17 +167,20 @@ function call_js_getReceiverStatusFromHostDevice() {
 
 /**
 */
-function call_js_startAITControlledAppToHostDevice( mode, nwid, tsid, svid, aitidx ) {
+function call_js_startAITControlledAppToHostDevice( mode, type, nwid, tsid, svid, aitidx ) {
 	var ait = [
 		"http://127.0.0.1:8887/ait/sample_aaa.ait" ,
 		"http://127.0.0.1:8887/ait/sample_bbb.ait" ,
 		"http://127.0.0.1:8887/ait/sample_ccc.ait"
 	];
 
+    var tsid_attr = "transport_stream_id";
+    if( ['ABS','ACS','NCS'].includes(type) ) {
+        tsid_attr = "tlv_stream_id";
+    }
 	var app  = {
 		"resource": {
 			"original_network_id": nwid,
-			"transport_stream_id": tsid,
 			"service_id": svid
 		},
 		"hybridcast": {
@@ -183,6 +189,7 @@ function call_js_startAITControlledAppToHostDevice( mode, nwid, tsid, svid, aiti
 			"aiturl": ait[aitidx]
 		}
 	};
+    app['resource'][tsid_attr] = tsid;
 
 	var appmode = document.getElementById("appmode" + "_" + mode);
 	appmode.innerHTML = mode;

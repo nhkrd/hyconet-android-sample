@@ -9,8 +9,8 @@ android {
         applicationId "jp.or.nhk.rd.hyconet.android.sample"
         minSdkVersion 26
         targetSdkVersion 26
-        versionCode 20200730
-        versionName "2.0.0"
+        versionCode 20210907
+        versionName "2.1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
+//    implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.android.support:appcompat-v7:26.0.2'
     implementation 'com.android.support:design:26.1.0'
     testImplementation 'junit:junit:4.12'
@@ -49,5 +49,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation files('libs/cybergarage-upnp-core-2.1.1.jar')
     implementation files('libs/JSON-java-20170220.jar')
-    implementation files('libs/hyconet4j-2.0.0.jar')
+    implementation files('libs/hyconet4j-2.1.0.jar')
 }

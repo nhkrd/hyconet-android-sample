@@ -106,6 +106,9 @@ SOFTWARE.
 			<option value="TD" selected >TD</option>
 			<option value="BS" >BS</option>
 			<option value="CS" >CS</option>
+			<option value="ABS" >ABS</option>
+			<option value="ACS" >ACS</option>
+			<option value="NCS" >NCS</option>
 		</select></div>
 		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_getChannelInfoFromHostDevice();">GET</button></div>
 		<div data-o-grid-colspan="12">選局ボタン</div>
@@ -117,7 +120,7 @@ SOFTWARE.
 	<form><div class="o-grid-row itemarea">
 		<div data-o-grid-colspan="12" class="subsubtitle">G1. ハイブリッドキャストアプリの起動要求(選局のみ)</div>
 		<div data-o-grid-colspan="10">startAITControlledAppToHostDevice()</div>
-		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'tune', 32736, 32736, 1024, 1 );">POST</button></div>
+		<div data-o-grid-colspan="2"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'tune', 'TD', 32736, 32736, 1024, 1 );">POST</button></div>
 		<div data-o-grid-colspan="2">Mode:</div><div data-o-grid-colspan="10" id="appmode_tune" class="info"></div>
 		<div data-o-grid-colspan="2">App:</div><div data-o-grid-colspan="10" id="appapp_tune" class="info"></div>
 		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="appinfo_tune" class="info"></div>
@@ -125,13 +128,22 @@ SOFTWARE.
 	<form><div class="o-grid-row itemarea">
 		<div data-o-grid-colspan="12" class="subsubtitle">G2. ハイブリッドキャストアプリの起動要求<br>(選局とハイブリッドキャストアプリの起動)</div>
 		<div data-o-grid-colspan="12">startAITControlledAppToHostDevice()</div>
-		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 32736, 32736, 1024, 1 );">放送局A</button></div>
-		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 32737, 32737, 1032, 2 );">放送局B</button></div>
-		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 4, 16625, 101, 1 );">放送局C</button></div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 'TD', 32736, 32736, 1024, 1 );">放送局A</button></div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 'TD', 32737, 32737, 1032, 2 );">放送局B</button></div>
+		<div data-o-grid-colspan="4"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'app', 'BS', 4, 16625, 101, 1 );">放送局C</button></div>
 		<div data-o-grid-colspan="2">Mode:</div><div data-o-grid-colspan="10" id="appmode_app" class="info"></div>
 		<div data-o-grid-colspan="2">AppInfo:</div><div data-o-grid-colspan="10" id="appapp_app" class="info"></div>
 		<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="appinfo_app" class="info"></div>
 	</div></form>
+		<form><div class="o-grid-row itemarea">
+			<div data-o-grid-colspan="12" class="subsubtitle">G3. ハイブリッドキャストアプリの起動要求<br>(放送非依存ハイブリッドキャストアプリの起動)</div>
+			<div data-o-grid-colspan="12">startAITControlledAppToHostDevice()</div>
+			<div data-o-grid-colspan="6"><button type="button" onclick="call_js_startAITControlledAppToHostDevice( 'bia', 'TD', 32736, 32736, 1024, 1 );">放送非依存</button></div>
+			<div data-o-grid-colspan="6"></div>
+			<div data-o-grid-colspan="2">Mode:</div><div data-o-grid-colspan="10" id="appmode_bia" class="info"></div>
+			<div data-o-grid-colspan="2">AppInfo:</div><div data-o-grid-colspan="10" id="appapp_bia" class="info"></div>
+			<div data-o-grid-colspan="2">Return:</div><div data-o-grid-colspan="10" id="appinfo_bia" class="info"></div>
+		</div></form>
 
 	<!-- 7.2.3.2.3.4/7.1.7.3(JSInterface) 受信機動作状態の取得 -->
 	<!-- 7.2.3.2.3.4.1/7.1.7.3.1(JSInterface) 起動要求成否の取得 -->

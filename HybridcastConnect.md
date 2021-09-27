@@ -12,7 +12,7 @@ Hybridcast-Connect Standardization and Hybridcast Connect Protocol
 "Hybridcast-Connect" is the standardization opend at Sep.2018 in IPTV Forum Japan. Hybridcast-Connect can realize to control parts of the function of tuner on a TV Set from application outside of the tuner , and communicate through text message between the TV Set and some applications. This document is the simple instraction of that standardiation and protocol.
 
 
-ハイブリッドキャストコネクトは、IPTV Forum Japanにおいて2018年９月に標準規格化された「ハイブリッドキャスト技術仕様および運用規定」(以後、ハイコネ)の、仕様またはプロトコル(V2)のことを指します.ハイコネを利用すると、放送受信機能の一部の制御を受信機外のアプリケーションから実行でき、その受信機および受信機上のHybridcastサービスのブラウザアプリケーションと通信もできます.本ドキュメントでは、ハイコネ規格およびプロトコルについて簡単に紹介をします.
+ハイブリッドキャストコネクトは、IPTV Forum Japanにおいて2018年9月に標準規格化された「ハイブリッドキャスト技術仕様および運用規定」(以後、ハイコネ)の、仕様またはプロトコル(V2)のことを指します.ハイコネを利用すると、放送受信機能の一部の制御を受信機外のアプリケーションから実行でき、その受信機および受信機上のHybridcastサービスのブラウザアプリケーションと通信もできます.本ドキュメントでは、ハイコネ規格およびプロトコルについて簡単に紹介をします.
 
 
 
@@ -117,9 +117,9 @@ In the Hybridcast Connect, some devices and applications have appeared , these a
 ### ------ Reference ------
 
 ##### IPTVFJ STD-0011
-[IPTVFJ STD-0011](http://www.iptvforum.jp/download/input.html) "HTML5 Browser Specification Version 2.5", [http://www.iptvforum.jp/download/input.html](http://www.iptvforum.jp/download/input.html)
+[IPTVFJ STD-0011](http://www.iptvforum.jp/download/input.html) "HTML5 Browser Specification Version 2.6", [http://www.iptvforum.jp/download/input.html](http://www.iptvforum.jp/download/input.html)
 ##### IPTVFJ STD-0013
-[IPTVFJ STD-0013](http://www.iptvforum.jp/download/input.html)  "Hybridcast Operational Guideline Version 2.8", [http://www.iptvforum.jp/download/input.html](http://www.iptvforum.jp/download/input.html)
+[IPTVFJ STD-0013](http://www.iptvforum.jp/download/input.html)  "Hybridcast Operational Guideline Version 2.9", [http://www.iptvforum.jp/download/input.html](http://www.iptvforum.jp/download/input.html)
 
 
 # Hybridcast Connect system flow
